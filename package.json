@@ -8,7 +8,7 @@
   "scripts": {
     "install": "cd client && yarn install",
     "build": "cd client && yarn build",
-    "start": "concurrently \"webpack -w\" \"nodemon dist/index.bundle.js\" \"cd client && yarn start\"",
+    "start": "concurrently \"webpack -w --mode=development\" \"nodemon dist/index.bundle.js\" \"cd client && yarn start\"",
     "test": "cd client && yarn test",
     "run": "node index.js"
   },
