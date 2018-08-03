@@ -1,0 +1,7 @@
+.bgu-nav {
+  flex-grow: 1; }
+  .bgu-nav .bgu-nav-menu {
+    margin-left: -12px;
+    margin-right: 20px; }
+  .bgu-nav .bgu-nav-title {
+    flex: 1; }

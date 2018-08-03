@@ -1,0 +1,25 @@
+
+@media (min-width:0px) and (orientation: portrait) {
+    .cmw-balance {
+        width: 100%;
+    }
+
+    @for $i from 1 through 100 {
+        .cmw-balance-h-#{$i} {
+            height: 1% * $i;
+        }
+    }
+}
+
+@media (min-width:0px) and (orientation: landscape) {
+    .cmw-balance {
+        float: left;
+        height: 100%;
+    }
+
+    @for $i from 1 through 100 {
+        .cmw-balance-w-#{$i} {
+            width: 1% * $i;
+        }
+    }
+}

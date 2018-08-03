@@ -1,0 +1,39 @@
+{
+  "name": "crypto-net-worth",
+  "version": "1.0.0",
+  "description": "A site to watch your net worth for cryptocurrency.",
+  "main": "index.js",
+  "author": "John Taylor Blanche",
+  "license": "MIT",
+  "scripts": {
+    "install": "cd client && yarn install",
+    "build": "cd client && yarn build",
+    "start": "concurrently \"webpack -w\" \"nodemon dist/index.bundle.js\" \"cd client && yarn start\"",
+    "test": "cd client && yarn test",
+    "run": "node index.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-jwt": "^5.3.1",
+    "jsonwebtoken": "^8.3.0",
+    "morgan": "^1.9.0",
+    "mysql2": "^1.6.1",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-s3-uploader": "^4.8.0",
+    "sequelize": "^4.38.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "concurrently": "^3.6.0",
+    "node-sass": "^4.9.2",
+    "sass-loader": "^7.0.3",
+    "webpack": "^4.16.3",
+    "webpack-cli": "^3.1.0",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
