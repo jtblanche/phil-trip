@@ -10,7 +10,8 @@
     "build": "cd client && yarn build",
     "start": "concurrently \"webpack -w --mode=development\" \"nodemon dist/index.bundle.js\" \"cd client && yarn start\"",
     "test": "cd client && yarn test",
-    "run": "node index.js"
+    "run": "node dist/index.bundle.js",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
