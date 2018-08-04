@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "install": "cd client && yarn install",
-    "build": "cd client && yarn build",
+    "build": "webpack -w --mode=production; cd client && yarn build",
     "watch": "concurrently \"webpack -w --mode=development\" \"nodemon dist/index.bundle.js\" \"cd client && yarn start\"",
     "test": "cd client && yarn test",
     "start": "node dist/index.bundle.js",
