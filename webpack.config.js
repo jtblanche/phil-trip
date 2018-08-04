@@ -10,7 +10,7 @@ module.exports = {
     // where to store newly built javascript
     output: {
         // it's path on where to put the new files
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname),
         // the new file's name
         filename: 'index.bundle.js'
     },

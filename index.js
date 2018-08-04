@@ -10,14 +10,14 @@ const PORT = process.env.PORT || 8321; // Sets an initial port. We'll use this l
 
 app.use(logger("dev"));
 app.use(bodyParser.json());
-
-app.use(express.static(`${__dirname}/client/build`));
+console.log("client/build");
+app.use(express.static("client/build"));
 
 app.use(apiRoutes);
 
 // Any non API GET routes will be directed to our React App and handled by React Router
 app.get("*", (req, res) => {
-    res.sendFile(`${__dirname}/client/build/index.html`);
+    res.sendFile("client/build/index.html");
 });
 
 db.sequelize.sync().then(function() {

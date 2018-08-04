@@ -7,10 +7,11 @@
   "license": "MIT",
   "scripts": {
     "install": "cd client && yarn install",
+    "build-dev": "webpack --mode=development; cd client && yarn build",
     "build": "webpack --mode=production; cd client && yarn build",
-    "watch": "concurrently \"webpack -w --mode=development\" \"nodemon dist/index.bundle.js\" \"cd client && yarn start\"",
+    "watch": "concurrently \"webpack -w --mode=development\" \"nodemon index.bundle.js\" \"cd client && yarn start\"",
     "test": "cd client && yarn test",
-    "start": "node dist/index.bundle.js",
+    "start": "node index.bundle.js",
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {

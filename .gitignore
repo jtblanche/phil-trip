@@ -1,3 +1,4 @@
 node_modules/
 .env.*
-dist/
+index.bundle.js
+index.bundle.js.map
