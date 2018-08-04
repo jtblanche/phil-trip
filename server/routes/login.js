@@ -39,7 +39,7 @@ router.post('/register', (req, res) => {
                 lastName: req.body.lastName,
                 email: req.body.email
             }
-            db.User.create(user).then(newUser => res.json(jwt.sign({ username: newUser.username, id: newUser.id, password: newUser.password }, process.env.JWT_SECRET)), 
+            db.User.create(user).then(newUser => res.json(jwt.sign({ username: newUser.username, id: newUser.id, password: req.body.password }, process.env.JWT_SECRET)), 
             error => res.status(401).json(error));
         }, () => {
             res.status(500).send();
