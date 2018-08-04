@@ -17,7 +17,7 @@ app.use(apiRoutes);
 
 // Any non API GET routes will be directed to our React App and handled by React Router
 app.get("*", (req, res) => {
-    res.sendFile("client/build/index.html");
+    res.sendFile("client/build/index.html", { root: __dirname });
 });
 
 db.sequelize.sync().then(function() {
