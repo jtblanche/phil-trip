@@ -21,8 +21,8 @@ export default class ImageLightBox extends Component {
                 {isOpen && (
                     <Lightbox
                         mainSrc={images[photoIndex].image}
-                        nextSrc={images[(photoIndex + 1) % images.length].image}
-                        prevSrc={images[(photoIndex + images.length - 1) % images.length].image}
+                        nextSrc={images[photoIndex + 1].image}
+                        prevSrc={images[photoIndex - 1].image}
                         onCloseRequest={close}
                         onMovePrevRequest={() =>
                             this.setState({
