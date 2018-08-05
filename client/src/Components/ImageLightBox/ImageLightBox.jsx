@@ -21,16 +21,16 @@ export default class ImageLightBox extends Component {
                 {isOpen && (
                     <Lightbox
                         mainSrc={images[photoIndex].image}
-                        nextSrc={images[photoIndex + 1].image}
-                        prevSrc={images[photoIndex - 1].image}
+                        nextSrc={images[photoIndex + 1] && images[photoIndex + 1].image}
+                        prevSrc={images[photoIndex - 1] && images[photoIndex - 1].image}
                         onCloseRequest={close}
                         onMovePrevRequest={() =>
                             this.setState({
-                                photoIndex: (photoIndex + images.length - 1) % images.length
+                                photoIndex: photoIndex - 1
                             })}
                         onMoveNextRequest={() =>
                             this.setState({
-                                photoIndex: (photoIndex + 1) % images.length
+                                photoIndex: photoIndex + 1
                             })}
                         imageTitle={images[photoIndex].title}
                         imageCaption={images[photoIndex].description}
