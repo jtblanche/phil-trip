@@ -8,10 +8,10 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 
 const styles = {
     root: {
-      flexGrow: 1,
+        flexGrow: 1,
     },
-  };
-  
+};
+
 class ImageUploader extends React.Component {
     timer = null;
 
@@ -23,7 +23,7 @@ class ImageUploader extends React.Component {
     };
 
     onUploadStart = (file, next) => {
-        this.setState({downloading: true});
+        this.setState({ downloading: true });
         next(file);
     }
 
@@ -32,15 +32,15 @@ class ImageUploader extends React.Component {
         if (this.props.onComplete) {
             this.props.onComplete(image);
         }
-        this.setState({downloading: false, image, downloaded: true});
+        this.setState({ downloading: false, image, downloaded: true });
     }
 
     onError = () => {
-        this.setState({downloading: false});
+        this.setState({ downloading: false });
     }
 
     onProgress = percent => {
-        this.setState({ completed: percent});
+        this.setState({ completed: percent });
     }
 
     render() {
@@ -58,7 +58,7 @@ class ImageUploader extends React.Component {
                     onError={this.onError}
                     onFinish={this.onFinish}
                     onProgress={this.onProgress}
-                    signingUrlWithCredentials={ true }      // in case when need to pass authentication credentials via CORS
+                    signingUrlWithCredentials={true}      // in case when need to pass authentication credentials via CORS
                     uploadRequestHeaders={{ 'x-amz-acl': 'public-read' }}  // this is the default
                     contentDisposition="auto"
                     scrubFilename={(filename) => filename.replace(/[^\w\d_\-.]+/ig, '')}
@@ -66,18 +66,18 @@ class ImageUploader extends React.Component {
                     autoUpload={true}
                     style={hidden}
                     id={this.props.id}
-                    /> 
-                {this.state.downloaded && 
-                    <img src={this.state.image} style={{width: this.props.width || 100}}/>
+                />
+                {this.state.downloaded &&
+                    <img src={this.state.image} style={{ width: this.props.width || 100 }} />
                 }
                 <label htmlFor={this.props.id}>
                     <Button variant="contained" component="span">
                         Upload
                     </Button>
                 </label>
-                <LinearProgress variant="determinate" value={this.state.completed} style={this.state.downloading?{}:hidden}/>
+                <LinearProgress variant="determinate" value={this.state.completed} style={this.state.downloading ? {} : hidden} />
             </div>
-            );
+        );
     }
 }
 

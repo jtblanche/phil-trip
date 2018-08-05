@@ -1,2 +1,7 @@
-html, body, #root, #root > div, .bgu-app, .https-wrapper {
+html,
+body,
+#root,
+#root > div,
+.bgu-app,
+.https-wrapper {
   height: 100%; }

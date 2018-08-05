@@ -1,1 +1,4 @@
-export { default } from './PaymentMethodEdit.js';
+export {
+    default
+}
+from './PaymentMethodEdit.jsx';

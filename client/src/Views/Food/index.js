@@ -1,1 +1,4 @@
-export { default } from './Food.js';
+export {
+    default
+}
+from './Food.jsx';

@@ -1,1 +1,4 @@
-export { default } from './ExtraGear.js';
+export {
+    default
+}
+from './ExtraGear.jsx';

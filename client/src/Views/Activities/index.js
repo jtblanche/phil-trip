@@ -1,1 +1,4 @@
-export { default } from './Activities.js';
+export {
+    default
+}
+from './Activities.jsx';

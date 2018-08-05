@@ -22,4 +22,7 @@ const getHash = (password) => {
     })
 }
 
-export default { getHash, compareHash };
+export default {
+    getHash,
+    compareHash
+};
