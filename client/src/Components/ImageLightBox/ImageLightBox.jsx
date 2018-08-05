@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Lightbox from "react-image-lightbox";
 import './ImageLightBox.css';
+import 'react-image-lightbox/style.css';
 
 export default class ImageLightBox extends Component {
     constructor(props) {

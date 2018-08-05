@@ -3,6 +3,7 @@ import HttpsRedirect from 'react-https-redirect';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from '../../Components/Nav';
 import Main from '../../Components/Main';
+import LightBox from '../../Components/ImageLightBox';
 import Protected from '../Protected';
 import Login from '../Login';
 import Home from '../Home';
@@ -17,7 +18,10 @@ import './App.css';
 export default class App extends Component {
     state = {
         drawerOpen: false,
-        isAuthenticated: false
+        isAuthenticated: false,
+        isLightBoxOpen: false,
+        startingLightBoxIndex: 0,
+        lightBoxImages: []
     };
 
     componentDidMount = () => {
@@ -42,9 +46,17 @@ export default class App extends Component {
     handleDrawerOpen = () => {
         this.setState({ drawerOpen: true });
     };
+    closeLightBox = () => {
+        this.setState({ isLightBoxOpen: false });
+    };
+    openLightBox = (images, index) => {
+        if (!images.length) return;
+        this.setState({ isLightBoxOpen: true, lightBoxImages: images, startingLightBoxIndex: index });
+    };
     render = () => (
         <Fragment>
             <HttpsRedirect>
+                <LightBox isOpen={this.state.isLightBoxOpen} close={this.closeLightBox} images={this.state.lightBoxImages} photoIndex={this.state.startingLightBoxIndex} />
                 <Router>
                     <div className="bgu-app">
                         <Navbar open={this.state.drawerOpen} handleDrawerOpen={this.handleDrawerOpen} isAuthenticated={this.state.isAuthenticated} />
@@ -53,7 +65,7 @@ export default class App extends Component {
                                 <Login path="/Login" login={this.login} isAuthenticated={this.state.isAuthenticated} />
                                 <Protected exact path="/" isAuthenticated={this.state.isAuthenticated} component={Home} />
                                 <Protected exact path="/Home" isAuthenticated={this.state.isAuthenticated} component={Home} />
-                                <Protected exact path="/Food" isAuthenticated={this.state.isAuthenticated} component={Food} />
+                                <Protected exact path="/Food" openLightBox={this.openLightBox} isAuthenticated={this.state.isAuthenticated} component={Food} />
                                 <Protected exact path="/Activities" isAuthenticated={this.state.isAuthenticated} component={Activities} />
                                 <Protected exact path="/Transportation" isAuthenticated={this.state.isAuthenticated} component={Transportation} />
                                 <Protected exact path="/ExtraGear" isAuthenticated={this.state.isAuthenticated} component={ExtraGear} />

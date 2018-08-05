@@ -68,7 +68,7 @@ class ImageUploader extends React.Component {
                     id={this.props.id}
                 />
                 {this.state.downloaded &&
-                    <img src={this.state.image} style={{ width: this.props.width || 100 }} />
+                    <img onClick={this.props.onClickImage} src={this.state.image} style={{ width: this.props.width || 100 }} />
                 }
                 <label htmlFor={this.props.id}>
                     <Button variant="contained" component="span">

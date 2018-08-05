@@ -1,11 +1,13 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-export default ({ component: Component, isAuthenticated, logout: thisIsMyLogout, ...rest }) => (
-    <Route
+export default ({ component: Component, isAuthenticated, logout: thisIsMyLogout, ...rest }) => {
+    console.log('rest', rest);
+    return <Route
         {...rest}
-        render={props =>
-            isAuthenticated ? (
-                <Component {...props} logout={thisIsMyLogout} />
+        render={props => {
+            console.log('props', props);
+            return isAuthenticated ? (
+                <Component {...rest} {...props}logout={thisIsMyLogout} />
             ) : (
                     <Redirect
                         to={{
@@ -14,6 +16,7 @@ export default ({ component: Component, isAuthenticated, logout: thisIsMyLogout,
                         }}
                     />
                 )
+            }
         }
     />
-);
+    };
