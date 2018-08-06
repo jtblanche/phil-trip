@@ -8,7 +8,7 @@ export default class ImageLightBox extends Component {
         super(props);
 
         this.state = {
-            photoIndex: props.photoIndex
+            photoIndex: props.photoIndex || 0
         };
     }
 
@@ -20,7 +20,7 @@ export default class ImageLightBox extends Component {
             <div>
                 {isOpen && (
                     <Lightbox
-                        mainSrc={images[photoIndex].image}
+                        mainSrc={images[photoIndex] && images[photoIndex].image}
                         nextSrc={images[photoIndex + 1] && images[photoIndex + 1].image}
                         prevSrc={images[photoIndex - 1] && images[photoIndex - 1].image}
                         onCloseRequest={close}
@@ -32,8 +32,8 @@ export default class ImageLightBox extends Component {
                             this.setState({
                                 photoIndex: photoIndex + 1
                             })}
-                        imageTitle={images[photoIndex].title}
-                        imageCaption={images[photoIndex].description}
+                        imageTitle={images[photoIndex] && images[photoIndex].title}
+                        imageCaption={images[photoIndex] && images[photoIndex].description}
                     />
                 )}
             </div>
